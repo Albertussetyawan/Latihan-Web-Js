@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portofolio Mekatronika</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+
+
+
+
+<body>
+
+<div class="utama">
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <img src="img/Logo A Biru dengan Swoosh Dinamis.png" alt="Logo">
+        </div>
+
+        <nav>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#services" class="nav-link">Project</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Home -->
+    <section id="home" class="hero">
+
+        <div>
+
+            <h1>Portofolio</h1>
+
+            <p>Mahasiswa Teknik Mekatronika</p>
+
+            <a href="#services" class="btn btn-primary">
+                Lihat Project
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Project -->
+    <section id="services" class="services">
+
+        <button class="judul">Project</button>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="project project-gps">
+
+                    <div class="project-overlay">
+                        <h2>GPS Meter</h2>
+                        <p>
+                            Sistem pengukuran jarak menggunakan GPS dan mikrokontroler.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="project project-feeder">
+
+                    <div class="project-overlay">
+                        <h2>Automatic Feeder</h2>
+                        <p>
+                            Sistem pemberian pakan otomatis menggunakan sensor dan motor.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="project project-iot">
+
+                    <div class="project-overlay">
+                        <h2>IoT</h2>
+                        <p>
+                            Sistem monitoring menggunakan mikrokontroler dan website.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about" class="about">
+
+        <button class="judul">About</button>
+
+        <p class="deskripsi">
+            Mekatronika menggabungkan elemen-elemen mekanis, elektronik, dan 
+            komputasi ke dalam suatu sistem tunggal. Ini mencakup perancangan dan
+            pengembangan sensor, aktuator, kontroler elektronik, dan perangkat 
+            lunak untuk mengontrol dan mengoptimalkan kinerja sistem.
+        </p>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <h2>Tentang Saya</h2>
+
+                <p>
+                    Saya Albert, Mahasiswa teknik Mekatronika Politeknik ATMI
+                    Surakarta. Disini saya mempelari berbagai hal tentang
+                    elektronika, mikrokontroller, otomasi, dan pemrograman.
+                    Selain itu, saya juag mempelajari bagaimana hardware dan 
+                    software dapat digabungkan untuk membuat sebuah sistem otomatis.
+                </p>
+
+                <!-- Tambahan Section Grafik Chart.js -->
+                <div class="mt-4 p-3 bg-white rounded-4 shadow-sm border border-info">
+                    <h3 class="fs-5 text-primary mb-3">Statistik Kompetensi Proyek</h3>
+                    <canvas id="projectChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <h2>Skills</h2>
+
+                <div class="skills">
+                    <span>Arduino</span>
+                    <span>ESP32</span>
+                    <span>PLC</span>
+                    <span>IoT</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+
+        <button class="judul">Contact</button>
+
+        <form>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Nama">
+                </div>
+
+                <div class="col-md-6">
+                    <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Email">
+                </div>
+
+            </div>
+
+            <textarea
+                class="form-control"
+                placeholder="Pesan"></textarea>
+
+            <button
+                type="submit"
+                class="btn btn-primary kirim">
+                Kirim
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        Portofolio Albertus © 2026. All rights reserved.
+    </footer>
+
+</div>
+
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JavaScript untuk Fitur Web-JS -->
+<script>
+    // 1. Animasi Skill Progress Bar (Intersection Observer)
+    const skills = document.querySelector(".skills");
+    const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                skills.classList.add("active");
+            }
+        });
+    }, { threshold: 0.4 });
+    skillObserver.observe(skills);
+
+    // 2. Menu Active Dinamis & Smooth Scroll Spy
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("header nav a");
+
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 200)) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+                link.classList.add("active");
+            }
+        });
+    });
+
+    // 3. Chart.js Inisialisasi Grafik Statistik (Data Statis)
+    const ctx = document.getElementById('projectChart').getContext('2d');
+    const projectChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4', 'Semester 5', 'Semester 6'],
+            datasets: [{
+                label: 'Jumlah Proyek Selesai',
+                data: [2, 3, 5, 4, 7, 6],
+                backgroundColor: 'rgba(37, 99, 235, 0.7)',
+                borderColor: 'rgba(37, 99, 235, 1)',
+                borderWidth: 2,
+                borderRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
