@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
 <div class="utama">
@@ -32,32 +33,37 @@
         <nav>
             <a href="#home" class="nav-link active">Home</a>
             <a href="#services" class="nav-link">Project</a>
+            <a href="#pendidikan" class="nav-link">Education</a>
             <a href="#about" class="nav-link">About</a>
             <a href="#contact" class="nav-link">Contact</a>
+           
         </nav>
 
     </header>
 
 
     
-    <section id="home" class="hero">
+  <section id="home" class="hero">
 
-        <div>
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="img/videoplayback.mp4" type="video/mp4">
+        Browser Anda tidak mendukung video.
+    </video>
 
-            <h1>Portofolio</h1>
+  
+    <div class="hero-content">
 
-            <p>Mahasiswa Teknik Mekatronika</p>
+        <h1>Portofolio</h1>
 
-            <a href="#services" class="btn btn-primary">
-                Lihat Project
-            </a>
+        <p>Mahasiswa Teknik Mekatronika</p>
 
-        </div>
+        <a href="#services" class="btn btn-primary">
+            Lihat Project
+        </a>
 
-    </section>
+    </div>
 
-
-    
+</section>
     <section id="services" class="services">
 
         <button class="judul">Project</button>
@@ -110,6 +116,163 @@
     </section>
 
     
+
+<section id="pendidikan" class="pendidikan">
+
+    <div class="container">
+
+        <div class="judul-pendidikan">
+            <h2>Education</h2>
+            <p>
+            </p>
+        </div>
+
+  
+        <div class="timeline">
+
+     
+            <div class="timeline-item">
+
+                
+                <div class="timeline-content">
+
+                    <span class="jenjang">
+                        Perguruan Tinggi
+                    </span>
+
+                    <h3>Politeknik ATMI Surakarta</h3>
+
+                    <p>
+                        Program Studi Teknik Mekatronika.
+                    </p>
+
+                    <p class="alamat-sekolah">
+                        📍 Jl. Adisucipto (Mojo) No. 1,
+                        Surakarta, Jawa Tengah.
+                    </p>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=Politeknik+ATMI+Surakarta"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-lokasi">
+
+                        📍 Lihat Lokasi di Google Maps
+
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="timeline-item">
+
+                
+
+                <div class="timeline-content">
+
+                    <span class="jenjang">
+                        Sekolah Menengah Atas
+                    </span>
+
+                    <h3>SMA Negeri 1 Muntilan</h3>
+
+                    <p>
+                        Menempuh pendidikan menengah atas.
+                    </p>
+
+                    <p class="alamat-sekolah">
+                        📍 Muntilan, Kabupaten Magelang,
+                        Jawa Tengah.
+                    </p>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=SMA+Negeri+1+Muntilan"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-lokasi">
+
+                        📍 Lihat Lokasi di Google Maps
+
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="timeline-item">
+
+                
+
+                <div class="timeline-content">
+
+                    <span class="jenjang">
+                        Sekolah Menengah Pertama
+                    </span>
+
+                    <h3>SMP Negeri 1 Muntilan</h3>
+
+                    <p>
+                        Menempuh pendidikan menengah pertama.
+                    </p>
+
+                    <p class="alamat-sekolah">
+                        📍 Muntilan, Kabupaten Magelang,
+                        Jawa Tengah.
+                    </p>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=SMP+Negeri+1+Muntilan"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-lokasi">
+
+                        📍 Lihat Lokasi di Google Maps
+
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="timeline-item">
+
+               
+
+                <div class="timeline-content">
+
+                    <span class="jenjang">
+                        Sekolah Dasar
+                    </span>
+
+                    <h3>SD Marsudirini Muntilan</h3>
+
+                    <p>
+                        Awal perjalanan pendidikan saya.
+                    </p>
+
+                    <p class="alamat-sekolah">
+                        📍 Muntilan, Kabupaten Magelang,
+                        Jawa Tengah.
+                    </p>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&query=SD+Marsudirini+Muntilan"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-lokasi">
+
+                        📍 Lihat Lokasi di Google Maps
+
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
     <section id="about" class="about">
 
         <button class="judul">About</button>
@@ -162,7 +325,6 @@
     </section>
 
 
-   
     <section id="contact" class="contact">
 
         <button class="judul">Contact</button>
@@ -202,13 +364,63 @@
     </section>
 
 
-    <!-- Footer -->
+<section class="social" id="social">
+
+    <button class="judul" type="button">
+        Hubungi Saya
+    </button>
+
+    <p class="social-deskripsi">
+        Silakan hubungi saya melalui media sosial atau email
+        untuk berdiskusi mengenai proyek dan kolaborasi.
+    </p>
+
+    <div class="social-container">
+
+    
+        <a href="https://www.instagram.com/albertussetyawan_/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="social-card instagram">
+
+            <div class="social-icon">IG</div>
+            <h2>Instagram</h2>
+            <p>Lihat profil dan aktivitas saya di Instagram.</p>
+            <span>Kunjungi Instagram ↗</span>
+
+        </a>
+        
+        <a href="https://wa.me/625800152535"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="social-card whatsapp">
+
+            <div class="social-icon">WA</div>
+            <h2>WhatsApp</h2>
+            <p>Hubungi saya secara langsung melalui WhatsApp.</p>
+            <span>Chat WhatsApp ↗</span>
+
+        </a>
+
+        <a href="mailto:emailkamu@gmail.com"
+           class="social-card email">
+
+            <div class="social-icon">@</div>
+            <h2>Email</h2>
+            <p>Kirim pesan atau pertanyaan melalui email.</p>
+            <span>Kirim Email ↗</span>
+
+        </a>
+
+    </div>
+
+</section>
+
     <footer class="footer">
         Portofolio Albertus © 2026. All rights reserved.
     </footer>
 
 </div>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

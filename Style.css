@@ -4,6 +4,7 @@
 }
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 85px;
 }
 body {
     margin: 0;
@@ -19,19 +20,20 @@ body {
     margin: 0;
     padding: 0;
 }
-
-
 .header {
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+
     width: 100%;
     min-height: 75px;
+    padding: 12px 25px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 25px;
+
     background: #123b72;
     border-bottom: 4px solid #38bdf8;
 }
@@ -40,15 +42,16 @@ body {
     height: 50px;
     flex-shrink: 0;
     overflow: hidden;
+
     border: 3px solid #38bdf8;
     border-radius: 50%;
 }
 .logo img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: left;
-    display: block;
 }
 .header nav {
     display: flex;
@@ -63,23 +66,56 @@ body {
     font-weight: 600;
     transition: .3s;
 }
+
 .header nav a:hover {
     color: #67e8f9;
 }
-
-
 .hero {
     min-height: calc(100vh - 75px);
+    padding: 80px 40px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 40px;
+
     position: relative;
-    background: linear-gradient(rgba(147,197,253,.55),rgba(191,219,254,.55)),
-        url("img/lilian-do-khac-EyqUxJuOb1Q-unsplash.jpg") center/cover no-repeat;
+    isolation: isolate;
+    overflow: hidden;
+
+    /* Warna cadangan jika video gagal dimuat */
+    background: #123b72;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+        135deg,
+        rgba(147, 197, 253, 0.50),
+        rgba(15, 47, 95, 0.55)
+    );
+
+    pointer-events: none;
 }
 .hero > div {
     width: 1100px;
+    position: relative;
+    z-index: 1;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,39 +123,59 @@ body {
 }
 .hero > div::before {
     content: "";
+    display: block;
     width: 250px;
     height: 290px;
     flex-shrink: 0;
-    background: url("img/WhatsApp\ Image\ 2026-10-02\ at\ 10.55.11.jpeg") center/cover;
+
+    background-image: url("img/WhatsApp\ Image\ 2026-10-02\ at\ 10.55.11.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     border: 7px solid white;
     border-radius: 25px;
-    box-shadow: 0 15px 35px #1e40af33;
-    animation: masukKiri .8s ease both;
+
+    position: relative;
+    z-index: 2;
 }
 .hero h1 {
     margin: 0;
-    color: #0f2f5f;
+
+    color: #ffffff;
     font-size: 80px;
     font-weight: 900;
     line-height: 1;
     letter-spacing: -3px;
-    text-shadow: 0 3px white, 0 8px 20px #0f2f5f22;
+
+    text-shadow: 0 3px 8px #0f2f5f66;
+
     animation: masukAtas .8s ease both;
 }
 .hero h1::before {
     content: "";
     display: block;
+
     width: 90px;
     height: 6px;
     margin-bottom: 22px;
+
     border-radius: 10px;
-    background: linear-gradient(90deg,#2563eb,#06b6d4,#8b5cf6);
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #06b6d4,
+        #8b5cf6
+    );
 }
 .hero h1::after {
     content: "Halo, saya Albertus";
     display: block;
+
     margin: 20px 0;
-    color: #2563eb;
+
+    color: #bae6fd;
     font-size: 35px;
     letter-spacing: 0;
     line-height: 1.2;
@@ -127,108 +183,150 @@ body {
 .hero p {
     width: fit-content;
     max-width: 500px;
+
     padding: 13px 18px;
     margin-bottom: 25px;
+
     color: #123b72;
     background: #ffffffd9;
+
     border-left: 5px solid #2563eb;
     border-radius: 10px;
+
     font-size: 20px;
     font-weight: 700;
     line-height: 1.6;
 }
 .hero .btn {
     position: absolute;
-    bottom: 40px;
+    bottom: -100px;
     left: 50%;
+    z-index: 2;
+
     transform: translateX(-50%);
+
     padding: 13px 28px;
+
+    color: white;
     border: 0;
     border-radius: 12px;
-    background: linear-gradient(135deg,#2563eb,#7c3aed);
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
     font-size: 14px;
     font-weight: 700;
+
     box-shadow: 0 8px 22px #2563eb44;
     transition: .3s;
 }
 .hero .btn:hover {
-    background: linear-gradient(135deg,#7c3aed,#06b6d4);
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #06b6d4
+    );
+
     transform: translateX(-50%) translateY(-3px);
 }
-
-
 .judul {
     min-width: 115px;
     height: 46px;
     padding: 0 24px;
+
     color: white;
     background: #2563eb;
     border: 0;
     border-radius: 24px;
+
     font-size: 17px;
     font-weight: 700;
+
     box-shadow: 0 4px 12px #2563eb33;
     transition: .3s;
 }
+
 .judul:hover {
     transform: translateY(-3px);
 }
-
 .services {
     min-height: 600px;
     padding: 75px 60px;
+
     text-align: center;
     position: relative;
     overflow: hidden;
+
     background:
-        radial-gradient(circle at 10% 20%,#38bdf833,transparent 22%),
-        radial-gradient(circle at 90% 80%,#8b5cf833,transparent 24%),
+        radial-gradient(circle at 10% 20%, #38bdf833, transparent 22%),
+        radial-gradient(circle at 90% 80%, #8b5cf833, transparent 24%),
         #03237b;
 }
+
 .services .judul {
     position: relative;
     z-index: 1;
 }
+
 .services .row {
     margin: 50px -15px 0;
     position: relative;
     z-index: 1;
 }
+
 .services .col-md-4 {
     padding: 0 15px;
 }
+
 .project {
     height: 320px;
     margin-bottom: 25px;
     padding: 0;
+
     position: relative;
     overflow: hidden;
     text-align: left;
+
     background-color: white;
     background-size: cover;
     background-position: center;
+
     border: 2px solid #bfdbfe;
     border-radius: 16px;
     box-shadow: 0 8px 20px #0002;
+
     transition: .3s;
 }
+
 .project-gps {
-    background-image: url("img/WhatsApp\ Image\ 2026-10-01\ at\ 13.37.04.jpeg");
+    background-image:
+        url("img/WhatsApp\ Image\ 2026-10-01\ at\ 13.37.04.jpeg");
 }
+
 .project-feeder {
-    background-image: url("img/Screenshot\ 2026-10-01\ 135202.png");
+    background-image:
+        url("img/Screenshot\ 2026-10-01\ 135202.png");
 }
+
 .project-iot {
-    background-image: url("img/WhatsApp\ Image\ 2026-10-01\ at\ 13.41.16.jpeg");
+    background-image:
+        url("img/WhatsApp\ Image\ 2026-10-01\ at\ 13.41.16.jpeg");
 }
+
 .project-overlay {
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
+
     padding: 20px;
+
     color: white;
     background: #03237be8;
+
     transition: .3s;
 }
 .project h2 {
@@ -250,17 +348,162 @@ body {
 .project:hover .project-overlay {
     background: #03237bf5;
 }
+.pendidikan {
+    padding: 60px 30px;
+    background: #dbeafe;
+    color: #172554;
+}
+.judul-pendidikan {
+    text-align: center;
+    margin-bottom: 35px;
+}
+.judul-pendidikan h2 {
+    display: table;
+    min-width: 115px;
+    height: 46px;
+    padding: 0 24px;
+    margin: 0 auto 15px;
 
+    color: white;
+    background: linear-gradient(90deg, #1d4ed8, #0891b2);
+    border: 0;
+    border-radius: 24px;
 
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 46px;
+    text-align: center;
+}
+.judul-pendidikan p {
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.6;
+}
+.timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+.timeline-item {
+    margin-bottom: 0;
+    min-width: 0;
+}
+.timeline-content {
+    height: 100%;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #93b4e0;
+    border-top: 5px solid #123b72;
+    border-radius: 8px;
+}
+.jenjang {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    background: #123b72;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.timeline-content h3 {
+    margin-bottom: 10px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #0c2d5e;
+    line-height: 1.4;
+}
+.timeline-content p {
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #334155;
+}
+.timeline-content .alamat-sekolah {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #eaf2ff;
+    border-left: 3px solid #2563eb;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+.btn-lokasi {
+    display: inline-block;
+    padding: 10px 12px;
+    background: #174ea6;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.btn-lokasi:hover {
+    background: #0c2d5e;
+    color: #ffffff;
+}
+@media (max-width: 768px) {
+    .pendidikan {
+        padding: 50px 20px;
+    }
+    .timeline {
+        gap: 15px;
+    }
+    .timeline-content {
+        padding: 18px;
+    }
+    .timeline-content h3 {
+        font-size: 17px;
+    }
+}
+@media (max-width: 576px) {
+    .pendidikan {
+        padding: 40px 15px;
+    }
+    .judul-pendidikan {
+        margin-bottom: 25px;
+    }
+    .judul-pendidikan h2 {
+        font-size: 25px;
+    }
+    .judul-pendidikan p {
+        font-size: 13px;
+    }
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .timeline-content {
+        padding: 18px;
+    }
+    .timeline-content h3 {
+        font-size: 17px;
+    }
+    .btn-lokasi {
+        display: block;
+        text-align: center;
+    }
+}
 .about {
     min-height: 550px;
     padding: 75px 60px;
+
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg,#dbeafe,#eff6ff 55%,#bfdbfe);
+
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #eff6ff 55%,
+        #bfdbfe
+    );
     border-top: 6px solid #2563eb;
 }
-.about::before, .about::after {
+.about::before,
+.about::after {
     content: "";
     position: absolute;
     border-radius: 50%;
@@ -283,23 +526,28 @@ body {
 .about > .judul {
     display: block;
     margin: 0 auto 35px;
+
     position: relative;
     z-index: 1;
-    background: linear-gradient(90deg,#1d4ed8,#0891b2);
+
+    background: linear-gradient(90deg, #1d4ed8, #0891b2);
 }
 .deskripsi {
     max-width: 750px;
     margin: 0 auto 35px;
+
     color: #334155;
     text-align: center;
     font-size: 15px;
     line-height: 1.8;
+
     position: relative;
     z-index: 1;
 }
 .about .row {
     max-width: 1050px;
     margin: 0 auto;
+
     position: relative;
     z-index: 1;
 }
@@ -318,45 +566,55 @@ body {
     width: 55px;
     height: 4px;
     margin-top: 9px;
+
     border-radius: 5px;
-    background: linear-gradient(90deg,#06b6d4,#2563eb);
+
+    background: linear-gradient(90deg, #06b6d4, #2563eb);
 }
 .about .col-md-6 > p {
     padding: 25px;
     margin: 0;
+
     color: #334155;
     background: white;
+
     border: 1px solid #93c5fd;
     border-left: 5px solid #2563eb;
     border-radius: 15px;
+
     line-height: 1.8;
     font-size: 14px;
+
     box-shadow: 0 8px 22px #1d4ed81a;
     transition: .3s;
 }
 .about .col-md-6 > p:hover {
     transform: translateY(-4px);
 }
-
-
 .skills span {
     display: block;
     position: relative;
     overflow: hidden;
+
     padding: 14px 17px;
     margin: 12px 0;
+
     color: #1e3a8a;
     background: white;
+
     border: 1px solid #93c5fd;
     border-radius: 12px;
+
     font-size: 14px;
     font-weight: 700;
+
     box-shadow: 0 5px 14px #1d4ed814;
     transition: .3s;
 }
 .skills span:hover {
     transform: translateX(5px);
 }
+
 .skills span::before {
     position: absolute;
     top: 14px;
@@ -380,7 +638,9 @@ body {
     display: block;
     height: 8px;
     margin-top: 10px;
+
     border-radius: 8px;
+
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 1s ease;
@@ -390,31 +650,39 @@ body {
 }
 .skills span:nth-child(1)::after {
     width: 90%;
-    background: linear-gradient(90deg,#2563eb,#38bdf8);
+    background: linear-gradient(90deg, #2563eb, #38bdf8);
 }
+
 .skills span:nth-child(2)::after {
     width: 80%;
-    background: linear-gradient(90deg,#0891b2,#22d3ee);
+    background: linear-gradient(90deg, #0891b2, #22d3ee);
 }
 .skills span:nth-child(3)::after {
     width: 75%;
-    background: linear-gradient(90deg,#7c3aed,#a78bfa);
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
 }
 .skills span:nth-child(4)::after {
     width: 85%;
-    background: linear-gradient(90deg,#0284c7,#06b6d4);
+    background: linear-gradient(90deg, #0284c7, #06b6d4);
 }
-
-
 .contact {
     min-height: 550px;
     padding: 75px 60px;
+
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg,#312e81,#581c87 55%,#701a75);
+
+    background: linear-gradient(
+        135deg,
+        #312e81,
+        #581c87 55%,
+        #701a75
+    );
+
     border-top: 6px solid #c084fc;
 }
-.contact::before, .contact::after {
+.contact::before,
+.contact::after {
     content: "";
     position: absolute;
     border-radius: 50%;
@@ -437,19 +705,24 @@ body {
 .contact > .judul {
     display: block;
     margin: 0 auto 35px;
+
     position: relative;
     z-index: 1;
-    background: linear-gradient(90deg,#7c3aed,#db2777);
+
+    background: linear-gradient(90deg, #7c3aed, #db2777);
 }
 .contact form {
     max-width: 850px;
     margin: 0 auto;
     padding: 32px;
+
     position: relative;
     z-index: 1;
+
     background: white;
     border: 1px solid #d8b4fe;
     border-radius: 18px;
+
     box-shadow: 0 18px 40px #1e1b4b55;
 }
 .contact form::before {
@@ -457,19 +730,26 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 5px;
+
     border-radius: 18px 18px 0 0;
-    background: linear-gradient(90deg,#7c3aed,#db2777);
-}
-.contact input, .contact textarea {
+
+    background: linear-gradient(90deg, #7c3aed, #db2777);
+} 
+.contact input,
+.contact textarea {
     width: 100%;
     padding: 12px 14px;
     margin-bottom: 15px;
+
     color: #312e81;
     background: #faf5ff;
+
     border: 1px solid #d8b4fe;
     border-radius: 10px;
+
     font: inherit;
     transition: .3s;
 }
@@ -481,21 +761,26 @@ body {
     margin-top: 3px;
     resize: vertical;
 }
-.contact input:focus, .contact textarea:focus {
+.contact input:focus,
+.contact textarea:focus {
     outline: none;
     border-color: #9333ea;
     box-shadow: 0 0 0 3px #9333ea1c;
 }
-.contact input::placeholder, .contact textarea::placeholder {
+.contact input::placeholder,
+.contact textarea::placeholder {
     color: #7c7893;
 }
 .kirim {
     width: 110px;
     padding: 11px 15px;
+
     color: white;
-    background: linear-gradient(90deg,#7c3aed,#db2777);
+    background: linear-gradient(90deg, #7c3aed, #db2777);
+
     border: 0;
     border-radius: 9px;
+
     font-weight: 700;
     transition: .3s;
 }
@@ -506,21 +791,214 @@ body {
 #formStatus {
     color: #312e81;
 }
+.social {
+    min-height: 450px;
+    padding: 75px 60px;
 
-.footer {
-    min-height: 55px;
-    padding: 12px;
+    position: relative;
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            #38bdf833,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #8b5cf833,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #dbeafe 55%,
+            #f3e8ff
+        );
+
+    border-top: 6px solid #38bdf8;
+}
+.social::before,
+.social::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+.social::before {
+    width: 180px;
+    height: 180px;
+    top: -80px;
+    right: 5%;
+    background: #38bdf822;
+}
+.social::after {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    left: 3%;
+    background: #8b5cf622;
+}
+.social > .judul {
+    display: block;
+    margin: 0 auto 25px;
+
+    position: relative;
+    z-index: 1;
+
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+}
+.social-deskripsi {
+    max-width: 600px;
+    margin: 0 auto 40px;
+
+    position: relative;
+    z-index: 1;
+
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.8;
+}
+.social-container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    position: relative;
+    z-index: 1;
+}
+.social-card {
+    flex: 1 1 250px;
+    max-width: 320px;
+    min-width: 0;
+    min-height: 260px;
+    padding: 30px 22px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: #172554;
+    text-align: center;
+    text-decoration: none;
+
+    background: white;
+    border: 1px solid #bfdbfe;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 22px #1e40af18;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+.social-card:hover {
+    transform: translateY(-7px);
+    border-color: #38bdf8;
+    box-shadow: 0 15px 30px #1e40af30;
+}
+
+.social-card:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 4px;
+}
+.social-icon {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    margin-bottom: 20px;
+
+    color: white;
+    border-radius: 50%;
+
+    font-size: 22px;
+    font-weight: 800;
+}
+.instagram .social-icon {
+    background: linear-gradient(
+        135deg,
+        #f97316,
+        #e1306c,
+        #7c3aed
+    );
+}
+.whatsapp .social-icon {
+    background: #25d366;
+}
+.email .social-icon {
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+}
+.social-card h2 {
+    margin: 0 0 12px;
+    color: #123b72;
+    font-size: 21px;
+    font-weight: 700;
+}
+.social-card p {
+    width: 100%;
+    min-height: 48px;
+    margin: 0 0 20px;
+
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+.social-card span {
+    display: inline-block;
+    margin-top: auto;
+    padding: 11px 16px;
+
+    color: white;
+    background: #2563eb;
+    border-radius: 9px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: .3s;
+}
+.social-card:hover span {
+    filter: brightness(1.1);
+}
+.instagram span {
+    background: linear-gradient(90deg, #e1306c, #7c3aed);
+}
+.whatsapp span {
+    background: #16a34a;
+}
+.email span {
+    background: linear-gradient(90deg, #2563eb, #0891b2);
+}
+.footer {
+    min-height: 55px;
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     color: white;
     background: #123b72;
+
     border-top: 4px solid #38bdf8;
+
     text-align: center;
     font-size: 11px;
 }
-
-
 @keyframes masukKiri {
     from {
         opacity: 0;
@@ -541,8 +1019,6 @@ body {
         transform: translateY(0);
     }
 }
-
-
 @media (max-width: 768px) {
     .header {
         padding: 12px 20px;
@@ -570,14 +1046,26 @@ body {
     .hero p {
         font-size: 16px;
     }
-    .services, .about, .contact {
+    .services,
+    .about,
+    .contact {
         padding: 60px 30px;
     }
+
     .project {
         height: 290px;
     }
+    .social {
+        padding: 60px 30px;
+    }
+    .social-container {
+        gap: 20px;
+    }
+    .social-card {
+        flex-basis: 220px;
+        padding: 25px 18px;
+    }
 }
-
 
 @media (max-width: 576px) {
     body {
@@ -639,7 +1127,9 @@ body {
         bottom: 25px;
         padding: 12px 23px;
     }
-    .services, .about, .contact {
+    .services,
+    .about,
+    .contact {
         padding: 55px 16px;
     }
     .services .row {
@@ -673,8 +1163,38 @@ body {
     .contact form {
         padding: 25px 18px;
     }
-}
+    .social {
+        padding: 55px 16px;
+    }
 
+    .social-deskripsi {
+        margin-bottom: 30px;
+        font-size: 13px;
+    }
+    .social-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+    .social-card {
+        width: 100%;
+        max-width: 400px;
+        min-height: 245px;
+        flex: none;
+        padding: 25px 20px;
+    }
+    .social-card p {
+        min-height: auto;
+    }
+    .social-icon {
+        width: 58px;
+        height: 58px;
+        margin-bottom: 16px;
+    }
+    .social-card h2 {
+        font-size: 19px;
+    }
+}
 
 @media (max-width: 380px) {
     .header nav a {
@@ -692,4 +1212,20 @@ body {
         height: 42px;
         font-size: 15px;
     }
+    .social {
+        padding: 45px 12px;
+    }
+    .social-card {
+        min-height: 230px;
+        padding: 22px 15px;
+    }
+    .social-card h2 {
+        font-size: 18px;
+    }
+    .social-card p {
+        font-size: 12px;
+    }
+    .social-card span {
+        font-size: 11px;
+    }   
 }
