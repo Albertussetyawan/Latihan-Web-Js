@@ -1228,4 +1228,66 @@ body {
     .social-card span {
         font-size: 11px;
     }   
+
+
+
+
+/* Pop-up pesan berhasil */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 9999;
+}
+
+.popup-overlay[hidden] {
+    display: none;
+}
+
+.popup-box {
+    background: white;
+    width: 100%;
+    max-width: 380px;
+    padding: 30px 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+.popup-icon {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #d1fae5;
+    color: #059669;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.popup-box h2 {
+    color: #123b72;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.popup-box p {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.popup-box button {
+    min-width: 100px;
+}
+
+
+
+
 }
